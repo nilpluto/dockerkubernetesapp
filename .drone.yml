@@ -18,4 +18,9 @@ steps:
       password:
         from_secret: docker_password
 
+  - name: deploy
+    image: docker
+    commands:
+      - kubectl run test-deploy --image= docker --port=8080
+
 
