@@ -25,6 +25,7 @@ steps:
     commands:
       - echo "Line1"
       - kubectl get pods
+      - echo "Line2a"
       - kubectl apply --filename kubernetes/deployment.yaml
       - echo "Line2"
       - kubectl apply --filename kubernetes/service.yaml
