@@ -7,17 +7,3 @@ steps:
     image: library/openjdk:8-jdk
     commands:
       - ./gradlew clean build
-
-  docker:
-    image: plugins/docker
-    environment:
-      repo: just-a-coder/dockerkubernetesapp
-      USERNAME:
-        from_secret: docker_username
-      PASSWORD:
-        from_secret: docker_password
-    tag:
-      - "${DRONE_COMMIT:0:8}"
-    when:
-      branch: [develop, master]
-      event: push
