@@ -26,7 +26,7 @@ steps:
       - echo "Line1"
 #      - kubectl get pods
       - echo "Line2b"
-      - kubectl apply --context minikube --filename kubernetes/deployment.yml
+      - kubectl apply --filename kubernetes/deployment.yml
       - echo "Line2"
 #      - kubectl apply --context minikube --filename src/main/kubernetes/service.yaml
 #      - echo "Line3"
