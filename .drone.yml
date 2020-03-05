@@ -11,7 +11,6 @@ steps:
   - name: docker-build-publish
     image: plugins/docker
     Dockerfile: dockerfile
-    insecure: false
     settings:
       repo: just-a-coder/dockerkubernetesapp
       auto_tag: true
