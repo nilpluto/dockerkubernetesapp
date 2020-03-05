@@ -19,8 +19,6 @@ pipeline:
       password:
         from_secret: docker_password
     dockerfile: Dockerfile
-    commands:
-      - echo "line1"
     tag: latest
 
   kubernetes-deploy:
