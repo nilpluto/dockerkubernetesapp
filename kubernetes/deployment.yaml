@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: minikube-deploy
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: minikube-deploy
+    spec:
+      containers:
+        - name: minikube-deploy
+          image: justacoder7/dockerkubernetesapp:0.0.1-SNAPSHOT
+          ports:
+            - containerPort: 8080

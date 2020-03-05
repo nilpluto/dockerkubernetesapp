@@ -6,10 +6,12 @@ steps:
   - name: build
     image: library/openjdk:11-jdk
     commands:
-      - ./gradlew clean build
+      - ./gradlew build
 
-  - name: publish
+  - name: docker-build-publish
     image: plugins/docker
+    Dockerfile: dockerfile
+    insecure: false
     settings:
       repo: just-a-coder/dockerkubernetesapp
       auto_tag: true
@@ -19,11 +21,15 @@ steps:
         from_secret: docker_password
 
 
-  - name: deploy
+  - name: kubernetes-deploy
     image: justacoder7/dockerkubernetesapp:0.0.1-SNAPSHOT
     status: deployment/dockerkubernetesapp
     commands:
       - echo "Line1"
+      - kubectl get pods
+      - kubectl apply --filename kubernetes/deployment.yaml
       - echo "Line2"
-
-
+      - kubectl apply --filename kubernetes/service.yaml
+      - echo "Line3"
+      - kubectl apply --filename kubernetes/ingress.yaml
+      - echo "Line4"
