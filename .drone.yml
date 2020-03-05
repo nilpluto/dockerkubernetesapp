@@ -21,9 +21,9 @@ steps:
 
   - name: deploy
     image: justacoder7/dockerkubernetesapp:0.0.1-SNAPSHOT
+    status: deployment/dockerkubernetesapp
     commands:
       - echo "Line1"
-      - kubectl apply -f deployment.yml
       - echo "Line2"
 
 
