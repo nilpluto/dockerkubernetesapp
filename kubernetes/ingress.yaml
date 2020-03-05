@@ -6,10 +6,10 @@ metadata:
     name: minikube-ingress
 spec:
   rules:
-    - host: https://192.168.64.2:30567
+    - host: https://192.168.64.3:30567
       http:
         paths:
           - path: /
             backend:
               serviceName: minikube-service
-              servicePort: 8080
+              servicePort: 8090
