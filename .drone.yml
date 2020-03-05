@@ -18,9 +18,10 @@ steps:
       password:
         from_secret: docker_password
 
+
   - name: deploy
-    image: docker
+    image: justacoder7/dockerspringapp
     commands:
-      - kubectl run test-deploy --image= docker --port=8080
+    - kubectl apply -f deployment.yml
 
 
