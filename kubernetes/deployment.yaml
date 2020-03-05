@@ -11,6 +11,6 @@ spec:
     spec:
       containers:
         - name: minikube-deploy
-          image: justacoder7/dockerkubernetesapp:0.0.1-SNAPSHOT
+          image: justacoder7/dockerkubernetesapp
           ports:
             - containerPort: 8080
