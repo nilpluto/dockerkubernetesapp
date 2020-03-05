@@ -1,17 +1,17 @@
-pipeline:
-  build:
-    when:
-      branch: develop
-      event: push
-    image: openjdk:11-jdk
+kind: pipeline
+type: docker
+name: build
+steps:
+
+  - name: build
+    image: library/openjdk:11-jdk
     commands:
       - ./gradlew clean build
 
-  docker-build-publish:
-    when:
-      branch: develop
-      event: push
+
+  - name: docker-build-publish
     image: plugins/docker
+    dockerfile: dockerfile
     settings:
       repo: just-a-coder/dockerkubernetesapp
       auto_tag: true
@@ -19,20 +19,15 @@ pipeline:
         from_secret: docker_username
       password:
         from_secret: docker_password
-    dockerfile: dockerfile
 
-  kubernetes-deploy:
-    when:
-      branch: develop
-      event: push
+  - name: kubernetes-deploy
     image: brianberzins/kubectl:latest
     commands:
-      - echo "line11"
+      - echo "Line1"
       - kubectl get pods
-      - echo "line12"
       - kubectl apply --filename kubernetes/deployment.yaml
-      - echo "line13"
+      - echo "Line2"
       - kubectl apply --filename kubernetes/service.yaml
-      - echo "line14"
+      - echo "Line3"
       - kubectl apply --filename kubernetes/ingress.yaml
-      - echo "line15"
+      - echo "Line4"
