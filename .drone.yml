@@ -11,7 +11,7 @@ steps:
 
   - name: docker-build-publish
     image: plugins/docker
-    dockerfile: dockerfile
+    dockerfile: Dockerfile
     settings:
       repo: just-a-coder/dockerkubernetesapp
       auto_tag: true
@@ -28,6 +28,7 @@ steps:
       - ls
       - kubectl config get-contexts
       - echo "Line2a"
+      - kubectl config set-context minikube
       - kubectl apply --filename src/main/kubernetes/deployment.yaml
       - echo "Line2"
       - kubectl apply --filename src/main/kubernetes/service.yaml
