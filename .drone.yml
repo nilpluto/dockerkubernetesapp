@@ -22,8 +22,6 @@ steps:
 
   - name: kubernetes-deploy
     image: brianberzins/kubectl:latest
-    ports:
-      - 8080:8090
     commands:
       - echo "Line1"
       - pwd
