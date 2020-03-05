@@ -4,6 +4,6 @@ name: build
 steps:
 
   - name: build
-    image: library/openjdk:8-jdk
+    image: adoptopenjdk/openjdk11:alpine-jre
     commands:
       - ./gradlew clean build
