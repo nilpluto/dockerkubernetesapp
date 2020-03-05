@@ -21,14 +21,13 @@ steps:
         from_secret: docker_password
 
   - name: kubernetes-deploy
-    image: sinlead/drone-kubectl
+    image: brianberzins/kubectl:latest
     commands:
       - echo "Line1"
-#      - kubectl get pods
+      - kubectl get pods
       - echo "Line2b"
       - kubectl apply --filename kubernetes/deployment.yaml
       - echo "Line2"
-#      - kubectl apply --context minikube --filename src/main/kubernetes/service.yaml
-#      - echo "Line3"
-#      - kubectl apply --context minikube --filename src/main/kubernetes/ingress.yaml
-#      - echo "Line4"
+      - kubectl apply --filename kubernetes/service.yaml
+      - echo "line14"
+      - kubectl apply --filename kubernetes/ingress.yaml

@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: minikube-ingress
+  labels:
+    name: minikube-ingress
+spec:
+  rules:
+    - host: https://192.168.64.3:30567
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: minikube-service
+              servicePort: 8080
