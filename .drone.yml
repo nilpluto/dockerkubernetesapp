@@ -20,13 +20,13 @@ pipeline:
         from_secret: docker_password
     Dockerfile: src/main/docker/Dockerfile
 
-    kubernetes-deploy:
-      when:
-        branch: develop
-        event: push
-      image: brianberzins/kubectl:latest
-      commands:
-        - kubectl get pods
-        - kubectl apply --filename kubernetes/deployment.yaml
-        - kubectl apply --filename kubernetes/service.yaml
-        - kubectl apply --filename kubernetes/ingress.yaml
+  kubernetes-deploy:
+    when:
+      branch: develop
+      event: push
+    image: brianberzins/kubectl:latest
+    commands:
+      - kubectl get pods
+      - kubectl apply --filename kubernetes/deployment.yaml
+      - kubectl apply --filename kubernetes/service.yaml
+      - kubectl apply --filename kubernetes/ingress.yaml
