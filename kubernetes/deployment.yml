@@ -30,7 +30,7 @@ apiVersion: v1
       spec:
         containers:
           - name: app
-            image: "magalixcorp/k8scicd"
+            image: "just-a-coder/dockerkubernetesapp"
             resources:
               requests:
                 cpu: 10m
