@@ -1,6 +1,6 @@
 pipeline:
   build:
-    image: adoptopenjdk/openjdk11:alpine-jre
+    image: library/openjdk:8-jdk
     commands:
       - ./gradlew clean build
 
