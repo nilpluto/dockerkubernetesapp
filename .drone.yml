@@ -1,9 +1,14 @@
 kind: pipeline
-name: test
+type: docker
+name: default
+
 steps:
   - name: test
-  - pipeline:
-    build:
+    image: alpine
+    commands:
+      - echo hello
+      - echo world
+  -build:
       image: library/openjdk:8-jdk
       commands:
-      - ./gradlew clean build
+        - ./gradlew clean build
