@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
         - name: app
-          image: "justacoder7/dockerkubernetesapp"
+          image: "justacoder7/dockerkubernetesapp:0.0.1-SNAPSHOT"
           resources:
             requests:
               cpu: 10m
