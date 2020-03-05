@@ -21,13 +21,10 @@ steps:
         from_secret: docker_password
 
   - name: kubernetes-deploy
-    image: brianberzins/kubectl:latest
+    image: sinlead/drone-kubectl
     commands:
       - echo "Line1"
-      - echo "$config" > ~/.kube/config
-      - kubectl config set-context minikube
-      - echo "Line2a"
-      - kubectl get pods --context minikube
+      - kubectl get pods
       - echo "Line2b"
       - kubectl apply --context minikube --filename src/main/kubernetes/deployment.yaml
       - echo "Line2"
