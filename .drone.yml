@@ -18,7 +18,7 @@ pipeline:
         from_secret: docker_username
       password:
         from_secret: docker_password
-    Dockerfile: dockerfile
+    dockerfile: Dockerfile
 
   kubernetes-deploy:
     when:
