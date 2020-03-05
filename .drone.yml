@@ -28,7 +28,8 @@ steps:
       - ls
       - kubectl config get-contexts
       - echo "Line2a"
-      - kubectl config set-context minikube
+      - kubectl get pods
+      - echo "Line2b"
       - kubectl apply --filename src/main/kubernetes/deployment.yaml
       - echo "Line2"
       - kubectl apply --filename src/main/kubernetes/service.yaml
