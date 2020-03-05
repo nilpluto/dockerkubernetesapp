@@ -26,9 +26,9 @@ steps:
       - echo "Line1"
 #      - kubectl get pods
       - echo "Line2a"
-      - kubectl apply --filename kubernetes/deployment.yaml
+      - kubectl apply --filename src/kubernetes/deployment.yaml
       - echo "Line2"
-      - kubectl apply --filename kubernetes/service.yaml
+      - kubectl apply --filename src/kubernetes/service.yaml
       - echo "Line3"
-      - kubectl apply --filename kubernetes/ingress.yaml
+      - kubectl apply --filename src/kubernetes/ingress.yaml
       - echo "Line4"
