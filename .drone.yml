@@ -1,10 +1,31 @@
-kind: pipeline
-type: docker
-name: default
-
-steps:
-  - name: test
-    image: alpine
+pipeline:
+  build:
+    image: library/openjdk11:alpine-jre
     commands:
-      - echo hello
-      - echo world
+      - ./gradlew clean build
+
+  docker:
+    image: plugins/docker
+    environment:
+      repo: just-a-coder/dockerkubernetesapp
+      USERNAME:
+        from_secret: docker_username
+      PASSWORD:
+        from_secret: docker_password
+    tag:
+      - "${DRONE_COMMIT:0:8}"
+    when:
+      branch: [develop, master]
+      event: push
+
+#  deployment-stage:
+#    when:
+#      branch: develop
+#      event: push
+#    image: jmccann/drone-kubernetes:1
+##    context: transportation-edi-stage-ttc
+#    filename: kubernetes
+#    images:
+#      edi214-publish-api: delivery-services-transportation.docker.target.com/edi214-publish-api:${DRONE_COMMIT:0:8}
+#    status:
+#      - deployment/edi214-publish-api
