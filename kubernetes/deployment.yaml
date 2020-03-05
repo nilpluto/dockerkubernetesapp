@@ -1,7 +1,7 @@
 apiVersion: v1
-  kind: Service
-  metadata:
-    name: hello-svc
+kind: Service
+metadata:
+  name: hello-svc
   spec:
     selector:
       role: app
@@ -12,25 +12,25 @@ apiVersion: v1
         nodePort: 32001
     type: NodePort
 ---
-  apiVersion: apps/v1
-  kind: Deployment
-  metadata:
-    name: hello-deployment
-    labels:
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-deployment
+  labels:
+    role: app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
       role: app
-  spec:
-    replicas: 2
-    selector:
-      matchLabels:
+  template:
+    metadata:
+      labels:
         role: app
-    template:
-      metadata:
-        labels:
-          role: app
-      spec:
-        containers:
-          - name: app
-            image: "just-a-coder/dockerkubernetesapp"
-            resources:
-              requests:
-                cpu: 10m
+    spec:
+      containers:
+        - name: app
+          image: "just-a-coder/dockerkubernetesapp"
+          resources:
+            requests:
+              cpu: 10m
