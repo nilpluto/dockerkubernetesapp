@@ -24,11 +24,11 @@ steps:
     image: sinlead/drone-kubectl
     commands:
       - echo "Line1"
-      - kubectl get pods
+#      - kubectl get pods
       - echo "Line2b"
-      - kubectl apply --context minikube --filename src/main/kubernetes/deployment.yaml
+      - kubectl apply --context minikube --filename kubernetes/deployment.yml
       - echo "Line2"
-      - kubectl apply --context minikube --filename src/main/kubernetes/service.yaml
-      - echo "Line3"
-      - kubectl apply --context minikube --filename src/main/kubernetes/ingress.yaml
-      - echo "Line4"
+#      - kubectl apply --context minikube --filename src/main/kubernetes/service.yaml
+#      - echo "Line3"
+#      - kubectl apply --context minikube --filename src/main/kubernetes/ingress.yaml
+#      - echo "Line4"
