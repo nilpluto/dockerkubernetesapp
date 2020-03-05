@@ -24,7 +24,7 @@ steps:
     image: brianberzins/kubectl:latest
     commands:
       - echo "Line1"
-      - kubectl get pods
+#      - kubectl get pods
       - echo "Line2a"
       - kubectl apply --filename kubernetes/deployment.yaml
       - echo "Line2"
