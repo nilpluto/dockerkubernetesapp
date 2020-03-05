@@ -22,6 +22,8 @@ steps:
   - name: deploy
     image: justacoder7/dockerspringapp
     commands:
-    - kubectl apply -f deployment.yml
+      - echo "Line1"
+      - kubectl apply -f deployment.yml
+      - echo "Line2"
 
 
