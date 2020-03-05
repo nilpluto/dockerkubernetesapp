@@ -6,7 +6,7 @@ steps:
   - name: build
     image: library/openjdk:11-jdk
     commands:
-      - ./gradlew build
+      - ./gradlew clean build
 
   - name: docker-build-publish
     image: plugins/docker
