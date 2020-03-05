@@ -24,9 +24,8 @@ steps:
     image: brianberzins/kubectl:latest
     commands:
       - echo "Line1"
-      - pwd
-      - ls
-      - kubectl config get-contexts
+      - echo "$config" > ~/.kube/config
+      - kubectl config use-context minikube
       - echo "Line2a"
       - kubectl get pods
       - echo "Line2b"
