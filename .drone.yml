@@ -8,18 +8,14 @@ steps:
     commands:
       - ./gradlew clean build
 
-  - name: docker
+  - name: publish
     image: plugins/docker
-    environment:
+    settings:
       repo: just-a-coder/dockerkubernetesapp
-      USERNAME:
+      auto_tag: true
+      username:
         from_secret: docker_username
-      PASSWORD:
+      password:
         from_secret: docker_password
-    tag:
-      - "${DRONE_COMMIT:0:8}"
-    when:
-      branch: [develop, master]
-      event: push
-  
+
 
