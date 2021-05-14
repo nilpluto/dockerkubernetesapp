@@ -14,4 +14,10 @@ public class DemoController {
         log.info("Successfully Called Health Check Endpoint..");
         return ResponseEntity.ok("Health Check Completed...");
     }
+    
+        @GetMapping("/health")
+    public ResponseEntity healthCheck2() {
+        log.info("Successfully Called Health Check Endpoint..");
+        return ResponseEntity.ok("Health Check Completed...");
+    }
 }
